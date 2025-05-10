@@ -26,29 +26,30 @@
       text-align: center;
     }
     h1 {
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
       font-size: 1.25rem;
       font-weight: normal;
       color: #2f4f36;
     }
     .section {
-      margin-bottom: 1.75rem;
+      margin-bottom: 2rem;
       text-align: left;
     }
     h2 {
-      font-size: 1.1rem;
+      font-size: 1rem;
       margin-bottom: .5rem;
+      color: #354230;
     }
     .address, code {
       display: block;
       background: #eef0e7;
-      padding: .5rem .75rem;
+      padding: .75rem;
       border-radius: 6px;
       font-family: monospace;
-      font-size: .875rem;
-      word-break: break-word;
-      position: relative;
-      margin: 0;
+      font-size: .8rem;
+      word-wrap: break-word;
+      white-space: pre-wrap;
+      overflow-wrap: break-word;
     }
     .copy-wrapper {
       position: relative;
@@ -67,10 +68,11 @@
     button.copy-btn:hover {
       color: #155724;
     }
-    svg#barcode {
-      margin-top: 1rem;
-      width: 100%;
-      height: auto;
+    .thanks {
+      font-size: 1rem;
+      font-weight: bold;
+      margin-top: 2rem;
+      color: #2f4f36;
     }
   </style>
 </head>
@@ -82,7 +84,7 @@
       <h2>Alamat Kado Jakarta</h2>
       <div class="copy-wrapper">
         <pre class="address" id="addr-jkt">Apartemen Mediterania 2 Tower E 28BET, Jl. Letjen. S. Parman Kav. 28, Tanjung Duren Selatan, Grogol Petamburan, Jakarta Barat, DKI Jakarta, 11470</pre>
-        <button class="copy-btn" data-target="addr-jkt">Salin</button>
+        <button class="copy-btn" data-target="addr-jkt">Copy</button>
       </div>
     </div>
 
@@ -90,7 +92,7 @@
       <h2>Alamat Kado Lombok</h2>
       <div class="copy-wrapper">
         <pre class="address" id="addr-lombok">MYSTOCK ATK, Jln. TGH Moh Saleh Ahmad Petakawan Desa Kalijaga, Aikmel, Lombok Timur, Nusa Tenggara Barat, 83653</pre>
-        <button class="copy-btn" data-target="addr-lombok">Salin</button>
+        <button class="copy-btn" data-target="addr-lombok">Copy</button>
       </div>
     </div>
 
@@ -98,22 +100,21 @@
       <h2>Rekening BCA a.n Imam Fahrurrozi</h2>
       <div class="copy-wrapper">
         <code id="acc-number">0760177032</code>
-        <button class="copy-btn" data-target="acc-number">Salin</button>
+        <button class="copy-btn" data-target="acc-number">Copy</button>
       </div>
     </div>
 
-  <script>
-    JsBarcode('#barcode', document.getElementById('acc-number').innerText, {
-      format: 'CODE128', width: 2, height: 50, displayValue: true
-    });
+    <div class="thanks">Terima kasih atas doa dan perhatiannya.</div>
+  </div>
 
+  <script>
     document.querySelectorAll('.copy-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const targetId = btn.getAttribute('data-target');
         const text = document.getElementById(targetId).textContent;
         navigator.clipboard.writeText(text.trim()).then(() => {
           btn.textContent = 'Tersalin!';
-          setTimeout(() => btn.textContent = 'Salin', 1500);
+          setTimeout(() => btn.textContent = 'Copy', 1500);
         });
       });
     });
