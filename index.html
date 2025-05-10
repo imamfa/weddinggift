@@ -1,0 +1,126 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Info Hadiah & Rekening</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f5f0;
+      color: #354230;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 1rem;
+    }
+    .container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 480px;
+      width: 100%;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      color: #2f4f36;
+      line-height: 1.4;
+    }
+    .section {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+    h2 {
+      font-size: 1.1rem;
+      margin-bottom: .5rem;
+      color: #224422;
+    }
+    code, .address {
+      display: block;
+      background: #eef0e7;
+      padding: .75rem;
+      border-radius: 6px;
+      font-family: monospace;
+      font-size: .95rem;
+      word-break: break-word;
+      position: relative;
+    }
+    button.copy-btn {
+      position: absolute;
+      top: .5rem;
+      right: .5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: .85rem;
+      color: #2f4f36;
+    }
+    button.copy-btn:hover {
+      color: #155724;
+    }
+    svg#barcode {
+      margin-top: 1rem;
+      width: 100%;
+      height: auto;
+    }
+    @media (max-width: 400px) {
+      .container {
+        padding: 1rem;
+      }
+      h1 {
+        font-size: 1.25rem;
+      }
+      h2 {
+        font-size: 1rem;
+      }
+      code, .address {
+        font-size: .9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Terima kasih atas doa dan kasih sayangnya. Berikut info hadiah jika berkenan:</h1><div class="section">
+  <h2>Rekening BCA</h2>
+  <code id="acc-number">1234567890</code>
+  <button class="copy-btn" data-target="acc-number">Salin</button>
+</div>
+
+<div class="section">
+  <h2>Alamat Kado Lombok</h2>
+  <pre class="address" id="addr-lombok">Jl. Pantai Kelor No. 10
+
+Kec. Pemenang, Kab. Lombok Utara Nusa Tenggara Barat </pre> <button class="copy-btn" data-target="addr-lombok">Salin</button> </div>
+
+<div class="section">
+  <h2>Alamat Kado Jakarta</h2>
+  <pre class="address" id="addr-jkt">Jl. Mawar Merah No. 25
+
+Kel. Kebayoran Lama Jakarta Selatan DKI Jakarta </pre> <button class="copy-btn" data-target="addr-jkt">Salin</button> </div>
+
+<h2>Barcode Rekening</h2>
+<svg id="barcode"></svg>
+
+  </div>  <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>  <script>
+    // Generate barcode for rekening
+    const acc = document.getElementById('acc-number').innerText;
+    JsBarcode('#barcode', acc, { format: 'CODE128', width: 2, height: 50, displayValue: true });
+
+    // Copy to clipboard handler
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-target');
+        const text = document.getElementById(targetId).innerText;
+        navigator.clipboard.writeText(text).then(() => {
+          btn.textContent = 'Tersalin!';
+          setTimeout(() => btn.textContent = 'Salin', 1500);
+        });
+      });
+    });
+  </script></body>
+</html>
