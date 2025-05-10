@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,16 +29,10 @@
       margin-bottom: 1rem;
       font-size: 1.5rem;
       color: #2f4f36;
-      line-height: 1.4;
     }
     .section {
       margin-bottom: 1.5rem;
       text-align: left;
-    }
-    h2 {
-      font-size: 1.1rem;
-      margin-bottom: .5rem;
-      color: #224422;
     }
     code, .address {
       display: block;
@@ -46,7 +41,7 @@
       border-radius: 6px;
       font-family: monospace;
       font-size: .95rem;
-      word-break: break-word;
+      word-break: break-all;
       position: relative;
     }
     button.copy-btn {
@@ -67,46 +62,38 @@
       width: 100%;
       height: auto;
     }
-    @media (max-width: 400px) {
-      .container {
-        padding: 1rem;
-      }
-      h1 {
-        font-size: 1.25rem;
-      }
-      h2 {
-        font-size: 1rem;
-      }
-      code, .address {
-        font-size: .9rem;
-      }
-    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Terima kasih atas doa dan kasih sayangnya. Berikut info hadiah jika berkenan:</h1><div class="section">
-  <h2>Rekening BCA</h2>
-  <code id="acc-number">1234567890</code>
-  <button class="copy-btn" data-target="acc-number">Salin</button>
-</div>
+    <h1>Terima kasih atas doa dan kasih sayangnya. Jika berkenan, berikut informasi alamat dan rekening kami:</h1>
 
-<div class="section">
-  <h2>Alamat Kado Lombok</h2>
-  <pre class="address" id="addr-lombok">Jl. Pantai Kelor No. 10
+    <div class="section">
+      <h2>Rekening BCA a.n Imam Fahrurrozi</h2>
+      <code id="acc-number">0760177032</code>
+      <button class="copy-btn" data-target="acc-number">Salin</button>
+    </div>
 
-Kec. Pemenang, Kab. Lombok Utara Nusa Tenggara Barat </pre> <button class="copy-btn" data-target="addr-lombok">Salin</button> </div>
+    <div class="section">
+      <h2>Alamat Kado Lombok</h2>
+      <pre class="address" id="addr-lombok">MYSTOCK ATK, Jln. TGH Moh Saleh Ahmad Petakawan Desa Kalijaga, Aikmel, Lombok Timur, Nusa Tenggara Barat, 83653
+</pre>
+      <button class="copy-btn" data-target="addr-lombok">Salin</button>
+    </div>
 
-<div class="section">
-  <h2>Alamat Kado Jakarta</h2>
-  <pre class="address" id="addr-jkt">Jl. Mawar Merah No. 25
+    <div class="section">
+      <h2>Alamat Kado Jakarta</h2>
+      <pre class="address" id="addr-jkt">Apartemen Mediterania 2 Tower E 28BET, Jl. Letjen. S. Parman Kav. 28, Tanjung Duren Selatan, Grogol Petamburan, Jakarta Barat, DKI Jakarta, 11470
+</pre>
+      <button class="copy-btn" data-target="addr-jkt">Salin</button>
+    </div>
 
-Kel. Kebayoran Lama Jakarta Selatan DKI Jakarta </pre> <button class="copy-btn" data-target="addr-jkt">Salin</button> </div>
+    <h2>Barcode Rekening</h2>
+    <svg id="barcode"></svg>
+  </div>
 
-<h2>Barcode Rekening</h2>
-<svg id="barcode"></svg>
-
-  </div>  <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>  <script>
+  <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+  <script>
     // Generate barcode for rekening
     const acc = document.getElementById('acc-number').innerText;
     JsBarcode('#barcode', acc, { format: 'CODE128', width: 2, height: 50, displayValue: true });
@@ -122,5 +109,6 @@ Kel. Kebayoran Lama Jakarta Selatan DKI Jakarta </pre> <button class="copy-btn" 
         });
       });
     });
-  </script></body>
+  </script>
+</body>
 </html>
