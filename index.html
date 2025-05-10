@@ -26,13 +26,13 @@
       text-align: center;
     }
     .title {
-      font-size: 2rem;
+      font-size: 1.6rem;
       font-weight: bold;
       margin-bottom: 0.5rem;
       color: #2f4f36;
     }
     .intro {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       margin-bottom: 1.5rem;
       color: #354230;
     }
@@ -51,7 +51,6 @@
     .bank-box {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       background: #eef0e7;
       padding: 0.6rem 0.75rem;
       border-radius: 6px;
@@ -62,19 +61,18 @@
       overflow-wrap: break-word;
       width: 100%;
       box-sizing: border-box;
-      position: relative;
+      gap: 0.5rem;
     }
     .bank-logo {
-      height: 20px;
+      height: 24px;
       width: auto;
-      border: 1px solid #dcdcdc;
-      border-radius: 4px;
+      object-fit: contain;
+      background: transparent;
       padding: 2px;
-      background: white;
-      margin-right: 0.5rem;
     }
     .account-number {
       flex: 1;
+      word-break: break-word;
     }
     .copy-btn {
       background: #dce2d5;
@@ -84,17 +82,18 @@
       font-size: 0.7rem;
       padding: 0.3rem 0.6rem;
       color: #2f4f36;
+      align-self: center;
     }
     .copy-btn:hover {
       background: #c6d1bd;
     }
     .subtext {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       margin-top: 0.25rem;
       color: #6c7565;
     }
     .thanks {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       margin-top: 2rem;
       font-weight: 500;
       color: #2f4f36;
@@ -109,7 +108,7 @@
     <div class="section">
       <h2>Rekening Bank BCA</h2>
       <div class="bank-box">
-        <img src="https://i.postimg.cc/bYt94Hcj/retouch-2025051015115483.png" class="bank-logo">
+        <img src="https://raw.githubusercontent.com/imamfa/weddinggift/refs/heads/main/BCA.png" class="bank-logo">
         <div class="account-number" id="bca">0760177032</div>
         <button class="copy-btn" data-target="bca">Copy</button>
       </div>
@@ -119,7 +118,7 @@
     <div class="section">
       <h2>Rekening Bank Permata</h2>
       <div class="bank-box">
-        <img src="https://i.postimg.cc/Fz53h85X/retouch-2025051015114000.png" class="bank-logo">
+        <img src="https://raw.githubusercontent.com/imamfa/weddinggift/refs/heads/main/PERMATA.png" class="bank-logo">
         <div class="account-number" id="permata">4145002651</div>
         <button class="copy-btn" data-target="permata">Copy</button>
       </div>
