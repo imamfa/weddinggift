@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,33 +26,43 @@
       text-align: center;
     }
     h1 {
-      margin-bottom: 1rem;
-      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      font-size: 1.25rem;
+      font-weight: normal;
       color: #2f4f36;
     }
     .section {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.75rem;
       text-align: left;
     }
-    code, .address {
+    h2 {
+      font-size: 1.1rem;
+      margin-bottom: .5rem;
+    }
+    .address, code {
       display: block;
       background: #eef0e7;
-      padding: .75rem;
+      padding: .5rem .75rem;
       border-radius: 6px;
       font-family: monospace;
-      font-size: .95rem;
+      font-size: .875rem;
       word-break: break-word;
+      position: relative;
+      margin: 0;
+    }
+    .copy-wrapper {
       position: relative;
     }
     button.copy-btn {
       position: absolute;
-      top: .5rem;
-      right: .5rem;
+      top: 0;
+      right: 0;
       background: none;
       border: none;
       cursor: pointer;
-      font-size: .85rem;
+      font-size: .75rem;
       color: #2f4f36;
+      padding: .25rem .5rem;
     }
     button.copy-btn:hover {
       color: #155724;
@@ -66,42 +76,42 @@
 </head>
 <body>
   <div class="container">
-    <h1>Terima kasih atas doa, dukungan, dan kasih sayangnya. Jika berkenan, berikut informasi alamat pengiriman kado atau rekening kami:</h1>
+    <h1>Dengan penuh syukur dan bahagia, berikut kami sampaikan informasi alamat pengiriman kado atau rekening jika berkenan berbagi kebahagiaan bersama kami:</h1>
 
     <div class="section">
       <h2>Alamat Kado Jakarta</h2>
-      <pre class="address" id="addr-jkt">Apartemen Mediterania 2 Tower E 28BET, Jl. Letjen. S. Parman Kav. 28, Tanjung Duren Selatan, Grogol Petamburan, Jakarta Barat, DKI Jakarta, 11470</pre>
-      <button class="copy-btn" data-target="addr-jkt">Salin</button>
+      <div class="copy-wrapper">
+        <pre class="address" id="addr-jkt">Apartemen Mediterania 2 Tower E 28BET, Jl. Letjen. S. Parman Kav. 28, Tanjung Duren Selatan, Grogol Petamburan, Jakarta Barat, DKI Jakarta, 11470</pre>
+        <button class="copy-btn" data-target="addr-jkt">Salin</button>
+      </div>
     </div>
 
     <div class="section">
       <h2>Alamat Kado Lombok</h2>
-      <pre class="address" id="addr-lombok">MYSTOCK ATK, Jln. TGH Moh Saleh Ahmad Petakawan Desa Kalijaga, Aikmel, Lombok Timur, Nusa Tenggara Barat, 83653</pre>
-      <button class="copy-btn" data-target="addr-lombok">Salin</button>
+      <div class="copy-wrapper">
+        <pre class="address" id="addr-lombok">MYSTOCK ATK, Jln. TGH Moh Saleh Ahmad Petakawan Desa Kalijaga, Aikmel, Lombok Timur, Nusa Tenggara Barat, 83653</pre>
+        <button class="copy-btn" data-target="addr-lombok">Salin</button>
+      </div>
     </div>
 
     <div class="section">
       <h2>Rekening BCA a.n Imam Fahrurrozi</h2>
-      <code id="acc-number">0760177032</code>
-      <button class="copy-btn" data-target="acc-number">Salin</button>
+      <div class="copy-wrapper">
+        <code id="acc-number">0760177032</code>
+        <button class="copy-btn" data-target="acc-number">Salin</button>
+      </div>
     </div>
 
-    <h2>Barcode Rekening</h2>
-    <svg id="barcode"></svg>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
   <script>
-    // Generate barcode for rekening
-    const acc = document.getElementById('acc-number').innerText;
-    JsBarcode('#barcode', acc, { format: 'CODE128', width: 2, height: 50, displayValue: true });
+    JsBarcode('#barcode', document.getElementById('acc-number').innerText, {
+      format: 'CODE128', width: 2, height: 50, displayValue: true
+    });
 
-    // Copy to clipboard handler
     document.querySelectorAll('.copy-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const targetId = btn.getAttribute('data-target');
-        const text = document.getElementById(targetId).innerText;
-        navigator.clipboard.writeText(text).then(() => {
+        const text = document.getElementById(targetId).textContent;
+        navigator.clipboard.writeText(text.trim()).then(() => {
           btn.textContent = 'Tersalin!';
           setTimeout(() => btn.textContent = 'Salin', 1500);
         });
