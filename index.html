@@ -1,8 +1,9 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Info Hadiah & Rekening</title>
+  <title>Wedding Gift</title>
   <style>
     body {
       margin: 0;
@@ -25,13 +26,13 @@
       text-align: center;
     }
     .title {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       font-weight: bold;
       margin-bottom: 0.5rem;
       color: #2f4f36;
     }
     .intro {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       margin-bottom: 1.5rem;
       color: #354230;
     }
@@ -41,13 +42,37 @@
     }
     h2 {
       font-size: 1rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.25rem;
       color: #354230;
+    }
+    .bank-logo {
+      height: 18px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+    .copy-wrapper {
+      position: relative;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 50%;
+      right: 0.5rem;
+      transform: translateY(-50%);
+      background: #dce2d5;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.5rem;
+      color: #2f4f36;
+    }
+    .copy-btn:hover {
+      background: #c6d1bd;
     }
     .address, code {
       display: block;
       background: #eef0e7;
-      padding: 0.5rem 0.75rem;
+      padding: 0.75rem;
       border-radius: 6px;
       font-family: monospace;
       font-size: 0.8rem;
@@ -58,26 +83,15 @@
       box-sizing: border-box;
       margin: 0;
     }
-    .copy-wrapper {
-      position: relative;
-    }
-    button.copy-btn {
-      position: absolute;
-      top: 0.2rem;
-      right: 0.2rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 0.75rem;
-      color: #2f4f36;
-      padding: 0.25rem 0.5rem;
-    }
-    button.copy-btn:hover {
-      color: #155724;
+    .subtext {
+      font-size: 0.7rem;
+      margin-top: 0.25rem;
+      color: #6c7565;
     }
     .thanks {
-      font-size: 0.9rem;
-      margin-top: 1rem;
+      font-size: 1rem;
+      margin-top: 2rem;
+      font-weight: 500;
       color: #2f4f36;
     }
   </style>
@@ -85,41 +99,39 @@
 <body>
   <div class="container">
     <div class="title">Wedding Gift</div>
-    <div class="intro">Dengan penuh syukur dan bahagia, berikut informasi untuk pengiriman kado atau rekening jika berkenan berbagi kebahagiaan bersama kami:</div><div class="section">
-  <h2>Alamat Kado Jakarta</h2>
-  <div class="copy-wrapper">
-    <div class="address" id="addr-jkt">Apartemen Mediterania 2 Tower E 28BET, Jl. Letjen. S. Parman Kav. 28, Tanjung Duren Selatan, Grogol Petamburan, Jakarta Barat, DKI Jakarta, 11470</div>
-    <button class="copy-btn" data-target="addr-jkt">Copy</button>
+    <div class="intro">Untuk memudahkan keluarga atau sahabat yang ingin berbagi kebahagiaan, berikut kami informasikan rekening yang dapat digunakan.</div>
+
+    <div class="section">
+      <h2><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/BCA_logo.svg/2560px-BCA_logo.svg.png" class="bank-logo">Rekening Bank BCA</h2>
+      <div class="copy-wrapper">
+        <code id="bca">0760177032</code>
+        <button class="copy-btn" data-target="bca">Copy</button>
+      </div>
+      <div class="subtext">a.n Imam Fahrurrozi</div>
+    </div>
+
+    <div class="section">
+      <h2><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Bank_Permata_logo.svg/2560px-Bank_Permata_logo.svg.png" class="bank-logo">Rekening Bank Permata</h2>
+      <div class="copy-wrapper">
+        <code id="permata">4145002651</code>
+        <button class="copy-btn" data-target="permata">Copy</button>
+      </div>
+      <div class="subtext">a.n Febrina Rizki Karnia</div>
+    </div>
+
+    <div class="thanks">Terima kasih atas doa dan perhatian yang diberikan.</div>
   </div>
-</div>
 
-<div class="section">
-  <h2>Alamat Kado Lombok</h2>
-  <div class="copy-wrapper">
-    <div class="address" id="addr-lombok">MYSTOCK ATK, Jln. TGH Moh Saleh Ahmad Petakawan Desa Kalijaga, Aikmel, Lombok Timur, Nusa Tenggara Barat, 83653</div>
-    <button class="copy-btn" data-target="addr-lombok">Copy</button>
-  </div>
-</div>
-
-<div class="section">
-  <h2>Rekening BCA a.n Imam Fahrurrozi</h2>
-  <div class="copy-wrapper">
-    <code id="acc-number">0760177032</code>
-    <button class="copy-btn" data-target="acc-number">Copy</button>
-  </div>
-</div>
-
-<div class="thanks">Terima kasih atas doa dan perhatiannya.</div>
-
-  </div>  <script>
+  <script>
     document.querySelectorAll('.copy-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const target = document.getElementById(btn.getAttribute('data-target'));
         navigator.clipboard.writeText(target.textContent.trim()).then(() => {
-          btn.textContent = 'Tersalin!';
+          btn.textContent = 'Copied!';
           setTimeout(() => btn.textContent = 'Copy', 1500);
         });
       });
     });
-  </script></body>
+  </script>
+</body>
 </html>
