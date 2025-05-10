@@ -26,7 +26,7 @@
       text-align: center;
     }
     .title {
-      font-size: 1.8rem;
+      font-size: 2rem;
       font-weight: bold;
       margin-bottom: 0.5rem;
       color: #2f4f36;
@@ -44,11 +44,17 @@
       font-size: 1rem;
       margin-bottom: 0.25rem;
       color: #354230;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
     .bank-logo {
-      height: 18px;
-      vertical-align: middle;
-      margin-right: 8px;
+      height: 20px;
+      width: auto;
+      border: 1px solid #dcdcdc;
+      border-radius: 4px;
+      padding: 2px;
+      background: white;
     }
     .copy-wrapper {
       position: relative;
@@ -60,10 +66,10 @@
       transform: translateY(-50%);
       background: #dce2d5;
       border: none;
-      border-radius: 4px;
+      border-radius: 6px;
       cursor: pointer;
-      font-size: 0.75rem;
-      padding: 0.25rem 0.5rem;
+      font-size: 0.7rem;
+      padding: 0.3rem 0.6rem;
       color: #2f4f36;
     }
     .copy-btn:hover {
@@ -72,7 +78,7 @@
     .address, code {
       display: block;
       background: #eef0e7;
-      padding: 0.75rem;
+      padding: 0.6rem 0.75rem;
       border-radius: 6px;
       font-family: monospace;
       font-size: 0.8rem;
@@ -89,7 +95,7 @@
       color: #6c7565;
     }
     .thanks {
-      font-size: 1rem;
+      font-size: 0.9rem;
       margin-top: 2rem;
       font-weight: 500;
       color: #2f4f36;
@@ -99,10 +105,10 @@
 <body>
   <div class="container">
     <div class="title">Wedding Gift</div>
-    <div class="intro">Untuk memudahkan keluarga atau sahabat yang ingin berbagi kebahagiaan, berikut kami informasikan rekening yang dapat digunakan.</div>
+    <div class="intro">Tanpa mengurangi rasa hormat, kami memfasilitasi bagi keluarga dan sahabat yang ingin mengirimkan tanda kasih melalui rekening berikut.</div>
 
     <div class="section">
-      <h2><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/BCA_logo.svg/2560px-BCA_logo.svg.png" class="bank-logo">Rekening Bank BCA</h2>
+      <h2><img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg" class="bank-logo">Rekening Bank BCA</h2>
       <div class="copy-wrapper">
         <code id="bca">0760177032</code>
         <button class="copy-btn" data-target="bca">Copy</button>
@@ -111,7 +117,7 @@
     </div>
 
     <div class="section">
-      <h2><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Bank_Permata_logo.svg/2560px-Bank_Permata_logo.svg.png" class="bank-logo">Rekening Bank Permata</h2>
+      <h2><img src="https://companieslogo.com/img/orig/BNLI.JK-f959e177.png?t=1730957760" class="bank-logo">Rekening Bank Permata</h2>
       <div class="copy-wrapper">
         <code id="permata">4145002651</code>
         <button class="copy-btn" data-target="permata">Copy</button>
