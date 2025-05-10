@@ -112,7 +112,7 @@
       <div class="bank-box">
         <img src="https://raw.githubusercontent.com/imamfa/weddinggift/refs/heads/main/BCA.png" class="bank-logo">
         <div class="account-number" id="bca">0760177032</div>
-        <button class="copy-btn" data-target="bca">Salin</button>
+        <button class="copy-btn" data-target="bca">Copy</button>
       </div>
       <div class="subtext">a.n Imam Fahrurrozi</div>
     </div>
@@ -122,7 +122,7 @@
       <div class="bank-box">
         <img src="https://raw.githubusercontent.com/imamfa/weddinggift/refs/heads/main/PERMATA.png" class="bank-logo">
         <div class="account-number" id="permata">4145002651</div>
-        <button class="copy-btn" data-target="permata">Salin</button>
+        <button class="copy-btn" data-target="permata">Copy</button>
       </div>
       <div class="subtext">a.n Febrina Rizki Karnia</div>
     </div>
@@ -135,7 +135,7 @@
       btn.addEventListener('click', () => {
         const target = document.getElementById(btn.getAttribute('data-target'));
         navigator.clipboard.writeText(target.textContent.trim()).then(() => {
-          btn.textContent = 'Tersalin!';
+          btn.textContent = 'Copied!';
           setTimeout(() => btn.textContent = 'Copy', 1500);
         });
       });
